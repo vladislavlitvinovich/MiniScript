@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         String inputFileName = args[0];
         String outputFileNamePrefix = args[1];
+        int num = Integer.parseInt(args[2]);
         String outputFileExtension = ".txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName))) {
@@ -26,7 +27,7 @@ public class Main {
                         volumeCount++;
 
                         // If we have two volumes, write to file and start a new one
-                        if (volumeCount == 2) {
+                        if (volumeCount == num) {
                             writeToFile(outputFileNamePrefix + fileCount + outputFileExtension, currentVolume);
                             currentVolume.clear();
                             volumeCount = 0;
